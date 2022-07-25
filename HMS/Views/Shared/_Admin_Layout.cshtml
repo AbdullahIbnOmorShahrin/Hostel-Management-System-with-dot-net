@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <header id="navbar">
+        <nav class="navbar container">
+            <div class="logo">
+                <a href="#showcase"><h3>Easy Hostel</h3></a>
+            </div>
+            <ul class="links">
+                <li><a href="#showcase">Home</a></li>
+                <li><a href="#story">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li>
+                    <a href="#">
+                        Log In
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Register
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="rendered">
+        @RenderBody()
+    </div>
+    <footer>
+        <p>FOOTER PART</p>
+    </footer>
+</body>
+</html>

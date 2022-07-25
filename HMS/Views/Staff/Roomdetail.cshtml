@@ -1,0 +1,114 @@
+﻿@model IEnumerable<HMS.Models.RoomDetail>
+
+@{
+    ViewBag.Title = "Roomdetail";
+    Layout = "~/Views/Shared/_Staff_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <title>Room Details</title>
+</head>
+<body>
+    <div>
+        <center>
+            <center>
+                <h3>Room Details</h3>
+            </center>
+            <form action="/Staff/Roomdetail" method="post">
+                <span class="text-info">@TempData["msg"]</span>
+                <div class="container">
+                    <label for="RoomNo"> <b>Room No</b> </label>
+                    <input type="number" placeholder="Room No" name="RoomNo">
+                    @Html.ValidationMessage("RoomNo");
+                    <br /> <br />
+                    <label for="Capacity"><b>Capacity</b></label>
+                    <input type="number" placeholder="Room Capacity" name="Capacity">
+                    @Html.ValidationMessage("member_id");
+                    <br /><br />
+                    <label for="AssignedMember"> <b>Assigned Member</b> </label>
+                    <input type="number" placeholder="Assigned Member" name="AssignedMember">
+                    @Html.ValidationMessage("AssignedMember");
+
+                    <br /><br />
+                    <label for="RoomSpec"><b>Room Specification</b></label>
+                    <input type="text" placeholder="Room Specification" name="RoomSpec">
+                    @Html.ValidationMessage("RoomSpec");
+                    <br />
+
+                    <button type="submit">Submit</button>
+
+                </div>
+            </form>
+        </center>
+
+        <br /> 
+        <br />
+        <br />
+        <br />
+
+        <table>
+            <tr>
+                <th>
+                    Room No
+                </th>
+                <th>
+                    Capacity
+                </th>
+                <th>
+                    Assigned Member
+                </th>
+                @*<th>
+                    Seat Available
+                </th>*@
+                <th>
+                    Room Specification
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.RoomNo
+                    </td>
+                    <td>
+                        @item.Capacity
+                    </td>
+                    <td>
+                        @item.AssignedMember
+                    </td>
+                    @*<td>
+                        @item.SeatAvailable
+                    </td>*@
+                    <td>
+                        @item.RoomSpec
+                    </td>
+                    
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>

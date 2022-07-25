@@ -1,0 +1,77 @@
+﻿@model IEnumerable<HMS.Models.StaffTask>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Staff_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div>
+            Staff Home Page
+            <table>
+                <tr>
+                    
+                    <th>
+                        Staff_ID
+                    </th>
+                    <th>
+                        Task
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Button
+                    </th>
+
+
+                </tr>
+                @{foreach (var item in Model)
+                    {
+                        <tr>
+                            
+                            <td>
+                                @item.StaffID
+                            </td>
+                            <td>
+                                @item.Task
+                            </td>
+                            <td>
+                                @item.Status
+                            </td>
+                            <td>
+                                <a href="/Staff/TaskDone/@item.ID">Done</a>
+                            </td>
+
+                        </tr>
+                    }
+
+                }
+            </table>
+        </div>
+    </center>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Page.Title</title>
+    <style>
+        .navbar {
+        background-color:antiquewhite;
+        padding:7px;
+        }
+        .navbar a{
+            text-decoration:none;
+            padding:2px 3px;
+            background-color:aliceblue;
+            margin-right:4px;
+            border-radius: 5px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <center class="navbar">
+            <h3>
+                Easy Hostel
+                <a href="/Staff/Index">Index</a>
+                <a href="/Staff/CalGro">Calculate Grocery</a>
+                <a href="/Staff/In_out_note">IN/OUT Note</a>
+
+                <a href="/Staff/Roomdetail">Room Details</a>
+                <a href="/Staff/MealInfo">Meal Infos</a>
+                <a href="/Staff/Request_Services">Request Services</a>
+                <a href="/Staff/profile">Profile</a>
+                <a href="/Home/Logout">LogOut</a>
+            </h3>
+        </center>
+
+
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <centre> <h4>CopyWrite by HMS Group_No</h4> </centre>
+    
+</body>
+</html>

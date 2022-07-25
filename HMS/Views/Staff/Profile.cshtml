@@ -1,0 +1,76 @@
+﻿@model IEnumerable<HMS.Models.Staff>
+@{
+    ViewBag.Title = "CalGro";
+    Layout = "~/Views/Shared/_Staff_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        table {
+            align-content:center;
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+            margin-top:30px;
+            margin:auto;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color:aliceblue;
+        }
+    </style>
+    <title>MealInfo</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    User ID
+                </th>
+                <th>
+                    Phone
+                </th>
+                <th>
+                    Address
+                </th>
+                
+
+            </tr>
+            @{foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                           @item.Name
+                        </td>
+                        <td>
+                            @item.Id
+                        </td>
+                        <td>
+                            @item.Phone
+                        </td>
+                        <td>
+                            @item.Address
+                        </td>
+                       
+                    </tr>
+                }
+
+            }
+        </table>
+    </div>
+</body>
+</html>

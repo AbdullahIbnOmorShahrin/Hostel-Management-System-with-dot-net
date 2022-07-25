@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @* <link href="~/Content/Site.css" rel="stylesheet" type="text/css" /> *@
+    <link href="~/Content/Navbar.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Home.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/forms.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <header id="navbar">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#showcase">
+                    <h3>Easy Hostel</h3>
+                </a>
+            </div>
+            <ul class="links">
+                <li><a href="/Home/Index">Home</a></li>
+                <li><a href="#story">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li>
+                    <a class="btn btn-signin" href="/Home/login">
+                        Log In
+                    </a>
+                </li>
+
+                <li>
+                    <a class="btn btn-signup" href="/Home/MemReg">
+                        Register
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="rendered">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <p class="copyright">Easy Hostel © 2022</p>
+    </footer>
+
+</body>
+
+</html>

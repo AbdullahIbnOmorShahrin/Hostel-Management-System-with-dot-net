@@ -1,0 +1,79 @@
+﻿@model IEnumerable<HMS.Models.Request_Services>
+@{
+    ViewBag.Title = "Request Services";
+    Layout = "~/Views/Shared/_Staff_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <title>Request Services</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Member_ID
+                </th>
+                <th>
+                    Service Type
+                </th>
+                <th>
+                    Status
+                </th>
+                <th>
+                    update
+                </th>
+
+
+            </tr>
+            @{foreach (var item in Model)
+                {
+                        <tr>
+                            <td>
+                                @item.Id
+                            </td>
+                            <td>
+                                @item.member_ID
+                            </td>
+                            <td>
+                                @item.Service_Type
+                            </td>
+                            <td>
+                                @item.Status
+                            </td>
+                            <td>
+                                <a href="/Staff/Request_Service_Update/@item.Id">Edit</a>
+                            </td>
+
+                        </tr>
+                }
+
+            }
+        </table>
+    </div>
+</body>
+</html>

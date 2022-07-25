@@ -1,0 +1,66 @@
+﻿@model HMS.Models.Request_Services
+@{
+    ViewBag.Title = "Request Services";
+    Layout = "~/Views/Shared/_Staff_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <title>In_out_note_edit</title>
+</head>
+<body>
+    <div>
+        <form action="/Staff/Request_Service_Update" method="post">
+            <span class="text-info">@TempData["msg"]</span>
+            <div class="container">
+                <label for="Serial"> <b>Serial</b> </label>
+                <input type="number" placeholder="" name="Id" readonly value="@Model.Id">
+                <br />
+
+
+                <label for="memid"><b>Member ID</b></label>
+                <input type="number" placeholder="Enter Member ID" name="member_id" readonly value="@Model.member_ID">
+                @Html.ValidationMessage("member_id");
+
+
+                @*<p>Select Status:</p>
+        <input type="radio" name="status" value="@Model.Status">
+        <label for="in">In</label><br>
+        <input type="radio" name="status" value="@Model.Status">
+        <label for="out">Out</label><br>*@
+
+                <label for="Status">Status:</label>
+
+                <select name="status">
+                    <option value="C">C</option>
+                    <option value="I">I</option>
+                </select>
+                @Html.ValidationMessage("Status");
+
+                <button type="submit">Submit</button>
+
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

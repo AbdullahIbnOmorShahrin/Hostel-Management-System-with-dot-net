@@ -1,0 +1,108 @@
+﻿@model IEnumerable<HMS.Models.CalGro>
+
+@*@model HMS.Models.CalGro*@
+@{
+    ViewBag.Title = "CalGro";
+    Layout = "~/Views/Shared/_Staff_Layout.cshtml";
+}
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<body>
+    <div>
+        <h3>Grocery Calculation and Details</h3>
+        <form action="/Staff/CalGro" method="post">
+            <span class="text-info">@TempData["msg"]</span>
+            <div class="container">
+                <label for="Date"> <b>Date and Time</b> </label>
+                <input type="text" placeholder="Date Time" name="Date" readonly value="@DateTime.Now.ToString("dddd, dd MMMM yyyy")">
+                <br />
+                <label for="Price"><b>Price</b></label>
+                <input type="number" placeholder="Enter Price" name="Price">
+                <br />
+
+                @*@Html.ValidationMessageFor(x=>x.Price,"",new {@class="text-danger" })*@
+                @Html.ValidationMessage("Price")
+
+                <label for="Product"><b>Product</b></label>
+                <input type="text" placeholder="Details" name="Product">
+                <br />
+                @Html.ValidationMessage("Product")
+                <br />
+                <button type="submit">Submit</button>
+
+            </div>
+        </form>
+    </div>
+
+    <br /> <br /> <br />
+    <table>
+        <tr>
+            <th>
+                Serial
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Product
+            </th>
+
+        </tr>
+        @{  float x = 0;
+            foreach (var item in Model)
+            {
+               
+                x = x + item.Price;
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Date
+                </td>
+                <td>
+                    @item.Price
+                    
+                </td>
+                <td>
+                    @item.Product
+                </td>
+                
+                @*<td>
+                    <a href="/Staff/calgro_edit/@item.Id">Edit</a>
+                </td>
+                <td>
+                    <a href="/Staff/calgro_delete/@item.Id">Delete</a>
+                </td>*@
+
+            </tr>
+             }
+            <tr>
+                <td></td>
+                <td>Total Price=</td>
+                <td>@x</td>
+                <td></td>
+            </tr>
+            }
+    </table>
+            
+
+</body>

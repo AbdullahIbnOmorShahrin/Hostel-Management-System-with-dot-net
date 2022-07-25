@@ -1,0 +1,66 @@
+﻿@model HMS.Models.In_out_notes
+@{
+    ViewBag.Title = "In_out_note_edit";
+    Layout = "~/Views/Shared/_Staff_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <title>In_out_note_edit</title>
+</head>
+<body>
+    <div>
+        <form action="/Staff/in_out_note_edit" method="post">
+            <span class="text-info">@TempData["msg"]</span>
+            <div class="container">
+                <label for="Serial"> <b>Serial</b> </label>
+                <input type="number" placeholder="" name="Id" readonly value="@Model.Id">
+
+                <label for="Date"> <b>Date and Time</b> </label>
+                <input type="text" placeholder="Date Time" name="DateAndTime" readonly value="@Model.DateAndTime">
+
+                <label for="memid"><b>Member ID</b></label>
+                <input type="number" placeholder="Enter Member ID" name="Member_id" value="@Model.Member_id">
+                @Html.ValidationMessage("Member_id")
+
+                @*<p>Select Status:</p>
+        <input type="radio" name="status" value="@Model.Status">
+        <label for="in">In</label><br>
+        <input type="radio" name="status" value="@Model.Status">
+        <label for="out">Out</label><br>*@
+
+                <label for="Status">Status:</label>
+
+                <select name="status">
+                    <option value="IN">IN</option>
+                    <option value="OUT">OUT</option>
+                </select>
+                @Html.ValidationMessage("Status")
+
+                <button type="submit">Submit</button>
+
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

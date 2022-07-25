@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Home_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+<form action="/Home/Login" method="post">
+    <span class="text-info">@TempData["msg"]</span>
+    <div class="container">
+        <label for="name">Id</label>
+        <input type="text" placeholder="Enter Your ID" name="Id">
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="Password">
+
+        <button type="submit">Login</button>
+       
+    </div>
+
+
+</form>
